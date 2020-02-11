@@ -23,7 +23,7 @@ input[type^="button"] {
     font-size: 50px;
 }
 
-section.start-screen>input {
+section.quizbox>button {
     margin-top: 50px;
 }
 
