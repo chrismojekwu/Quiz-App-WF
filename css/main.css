@@ -2,7 +2,7 @@
 section {
     border: solid rgba(210, 88, 82, 0.178);
     border-width: 5px;
-    border-radius: 7%;
+    border-radius: 3%;
     text-align: center;
     width: 320px;
     height: 568px;
@@ -30,26 +30,47 @@ section:hover {
 .quizbox {
     background-color: rgb(46, 17, 15);
     color: white;
+    padding: 5px;
 }
 
-
- 
-input[type^="button"] {
-    font-size: 24px;
+.counter {
+    margin-top: 10px;
 }
 
-section.quizbox>button {
+/*section.quizbox>button {
     margin-top: 50px;
 }
 
 section.question-page>form>input.submit {
     margin-top: 50px;
+}*/
+
+.submit,.checkScore,.restart,.quiz-start{
+    margin-top: 20px;
+    background-color: black;
+    color: white;
+    font-size: 18px;
+    border-radius: 5%;
+    border-width: 2px;
+}
+.nextQuestion {
+    background-color: black;
+    color: #FFFACD;
+    font-size: 18px;
+    border-radius: 5%;
+    border-width: 2px;
+}
+.submit:hover,.checkScore:hover,.restart:hover,.quiz-start:hover,.nextQuestion:hover {
+    color: #F89406;
+    border-color: #F9BF3B;
+    transition: 0.4s;
+    
 }
 
 img.quesPhoto {
     height:225px;
     width: auto;
-    margin-top: 30px;
+    margin-top: 5px;
     margin-left: auto;
     margin-right: auto;
 }

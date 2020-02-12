@@ -1,5 +1,5 @@
 "use strict";
-//QUESTIONS STORE
+
 
 const STORE = [
     {
@@ -18,7 +18,7 @@ const STORE = [
                   "After his sophmore season.",
                   "One and done."],
         correct:  "After his junior season.",
-        photo: ["img/mikeunc.jpg","Michael Jordan playing for the Univesity of North Carolina"]
+        photo: ["img/mikeunc.jpg","Michael Jordan playing for the Univesity of North Carolina."]
      },
      {
         question: "Which of the following teams did MJ play for?" ,
@@ -27,7 +27,7 @@ const STORE = [
                   "Scottsdale Scorpions",
                   "All of the above."],
         correct:  "All of the above.",
-        photo: ["img/mikegolf.jpeg","Michael Jordan playing golf"]
+        photo: ["img/mikegolf.jpeg","Michael Jordan playing golf."]
      },
      {
         question: "Of MJs six NBA championship wins, how many times did he also win the Finals MVP award?" ,
@@ -36,18 +36,65 @@ const STORE = [
                   "Never",
                   "Four times"],
         correct:  "Six times",
-        photo: ["img/mike6rings.jpg","Portrait of Michael Jordan displaying six championship rings"]
+        photo: ["img/mike6rings.jpg","Portrait of Michael Jordan displaying six championship rings."]
      },
      {
         question: "Every few years there is a passing of the torch of sorts for the best player in the NBA. Which set of players came before & after MJ?" ,
-        answers:[ "Julius Irving & Giannis Antetokounmpo",
+        answers:[ "Julius Erving & Giannis Antetokounmpo",
                   "Larry Bird & Allen Iverson",
                   "Grant Hill & Lebron James",
                   "Magic Johnson & Kobe Bryant"],
         correct:  "Magic Johnson & Kobe Bryant",
-        photo: ["img/mikedreamteam.jpg","Michael Jordan with Larry Bird & Magic Johnson in a photo for USA Basketball"]
-     }
+        photo: ["img/mikedreamteam.jpg","Michael Jordan with Larry Bird & Magic Johnson in a photo for USA Basketball."]
+     },
+     {
+         question: "After returning from his stint as baseball player, what alternate number did Mj wear in the 1994-1995 season?",
+         answers:[ "#11",
+                   "#12",
+                   "#45",
+                   "#3"],
+         correct:  "#45",
+         photo: ["img/mike45.jpg","Michael Jordan resting during a game."]
+     },
+     {
+        question: "In the movie Space Jam, Bill Murray served as a replacement for the only other human teammate on MJ's team. Who was that actor?",
+        answers:[ "Charles Barkley",
+                  "Wayne Knight (Newman from Seinfield)",
+                  "Dustin Neil Diamond (Screech from Saved by the Bell)",
+                  "Larry Bird"],
+        correct:  "Wayne Knight (Newman from Seinfield)",
+        photo: ["img/mikemurray.jpg","Michael Jordan and Bill Murray in a scene from the movie Space Jam."]
+    },
+    {
+        question: "Despite being 6'6 MJ wears a pretty common shoe size. What is it?",
+        answers:[ "Size 13",
+                  "Size 10.5",
+                  "Size 9",
+                  "Size 15"],
+        correct:  "Size 13",
+        photo: ["img/mikeshoe.jpg","Michael Jordan wearing his signature shoes."]
+    },
+    {
+        question: "Michael Jordan popularized the free throw line dunk in a 1987 Dunk contest. Which player and mentor of his performed it first?",
+        answers:[ "Clyde Drexler",
+                  "Dominique Wilkens",
+                  "Spud Webb",
+                  "Julius Erving"],
+        correct:  "Julius Erving",
+        photo: ["img/mikedrj.jpg","Michael Jordan and Julius Erving."]
+    },
+    {
+        question: "The NBA is known for its bitter rivalries. What legendary player and Chicago native was known as MJ's arch nemesis?",
+        answers:[ "Hakeem Olajuwon",
+                  "Scottie Pippen",
+                  "Isaiah Thomas",
+                  "Drazen Petrovic"],
+        correct:  "Isaiah Thomas",
+        photo: ["img/mikerival.png","Isaiah Thomas with Michael Jordan in the background."]
+    }
 ]; 
+
+const rightWrongPhoto = ["img/mikehappy.jpg","img/mikecrying.jpg"];
 
 ///START QUIZ
 
@@ -58,7 +105,7 @@ function startQuiz() {
   });
 };
 
-//console.log($('.questions'))
+
 
 
 let questionNum = 0; //variable for question number
@@ -79,8 +126,8 @@ function renderQuestion(){
 
 function createQuestionHtml(){
     return `<section class="quizbox">
-         ${questionNum + 1} of 5
-         <br>${score} made, ${questionNum  - score} missed
+        <div class="counter"> ${questionNum + 1} of ${STORE.length}
+         <br>${score} made, ${questionNum  - score} missed</div>
     <br><div id="photo"><img class="quesPhoto" src="${STORE[questionNum].photo[0]}" alt="${STORE[questionNum].photo[1]}"></div>
     <h1>${STORE[questionNum].question}</h1>
     <form>
@@ -103,10 +150,9 @@ function createQuestionHtml(){
 
 
 function handleSubmitAnswer(){
- //listen to answer choice - event handler // event object
   $('.quizbox').on('click',".submit", e => { 
-    let answer = $("input:checked")//.length;
-     //let answerBool = false;
+    let answer = $("input:checked");
+     
     if ($("input:checked").length < 1){
         alert('"I can accept failure, everyone fails at something. But I can\'t accept not trying."' + " - Michael Jordan")
     } else if (answer.hasClass(`${STORE[questionNum].correct}`) === true){
@@ -117,26 +163,11 @@ function handleSubmitAnswer(){
     clickNextQuestion();
     console.log("answer submitted")
   })
-  //answerFeedback(answerBool)
+  
 };
 
-/*function answerFeedback(){
-    //get answer value//stored answer value
-    $('.quizbox').on('click',".submit", e => { 
-     if (answerBool === true){
-        $('.quizbox').html(rightHtml());
-     } else {
-        $('.quizbox').html(wrongHtml());
-     }
-    //create a wrong or right feedback screen
-   
-    //update to the next question
-    })
-};*/
-const rightWrongPhoto = ["img/mikehappy.jpg","img/mikecrying.jpg"];
-
 function rightHtml(){
-    //clickNextQuestion();
+    
     score++
     if(questionNum + 1 === STORE.length){
         return `<section class="quizbox">
@@ -167,7 +198,7 @@ function rightHtml(){
 };
 
 function wrongHtml(){
-    //clickNextQuestion();
+    
     if(questionNum + 1 === STORE.length){
         return `<section class="quizbox">
         <h1>Miss!</h1>
@@ -201,10 +232,7 @@ function clickNextQuestion(){
     //know what question user is on
     $('.quizbox').on('click','.nextQuestion', e => {
         questionNum+=1
-        
-        //renderQuestion()
         $('.quizbox').html(createQuestionHtml());
-
         console.log('next question')
     })
     //call question page 
@@ -251,11 +279,7 @@ function renderFeedbackScreen(){
     $('.quizbox').submit('click','.restart', e => {
         console.log(submit)
     })
-    //get final score from checkAnswers
-    //compare it to feedback options
-    //generate according option 
-    //allow users to restart quiz
-   // console.log(percentage)
+    
 };
 
 function start() {
