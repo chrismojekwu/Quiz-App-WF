@@ -8,7 +8,8 @@ const STORE = [
                  "Charlotte, North Carolina",
                  "Brooklyn, New York",
                  "Philadelphia, Pennsylvania"],
-       correct:  "Brooklyn, New York"
+       correct:  "Brooklyn, New York",
+       photo: ["img/mikekid.jpg" , "Michael Jordan as a child."]
     },
     {
         question: "How long did MJ stay in college before entering the Nba Draft?",
@@ -16,7 +17,8 @@ const STORE = [
                   "After his junior season.",
                   "After his sophmore season.",
                   "One and done."],
-        correct:  "After his junior season."
+        correct:  "After his junior season.",
+        photo: ["img/mikeunc.jpg","Michael Jordan playing for the Univesity of North Carolina"]
      },
      {
         question: "Which of the following teams did MJ play for?" ,
@@ -24,7 +26,8 @@ const STORE = [
                   "Birmingham Barons",
                   "Scottsdale Scorpions",
                   "All of the above."],
-        correct:  "All of the above."
+        correct:  "All of the above.",
+        photo: ["img/mikegolf.jpeg","Michael Jordan playing golf"]
      },
      {
         question: "Of MJs six NBA championship wins, how many times did he also win the Finals MVP award?" ,
@@ -32,15 +35,17 @@ const STORE = [
                   "Once",
                   "Never",
                   "Four times"],
-        correct:  "Six times"
+        correct:  "Six times",
+        photo: ["img/mike6rings.jpg","Portrait of Michael Jordan displaying six championship rings"]
      },
      {
-        question: "Every few years theres is a passing of the torch of sorts for the best player in the NBA. Which set of players came before & after MJ?" ,
+        question: "Every few years there is a passing of the torch of sorts for the best player in the NBA. Which set of players came before & after MJ?" ,
         answers:[ "Julius Irving & Giannis Antetokounmpo",
                   "Larry Bird & Allen Iverson",
                   "Grant Hill & Lebron James",
                   "Magic Johnson & Kobe Bryant"],
-        correct:  "Magic Johnson & Kobe Bryant"
+        correct:  "Magic Johnson & Kobe Bryant",
+        photo: ["img/mikedreamteam.jpg","Michael Jordan with Larry Bird & Magic Johnson in a photo for USA Basketball"]
      }
 ]; 
 
@@ -76,7 +81,7 @@ function createQuestionHtml(){
     return `<section class="quizbox">
          ${questionNum + 1} of 5
          <br>${score} made, ${questionNum  - score} missed
-    <br><div class="photo question1" alt="photo of michael jordan">Question Photo</div>
+    <br><div id="photo"><img class="quesPhoto" src="${STORE[questionNum].photo[0]}" alt="${STORE[questionNum].photo[1]}"></div>
     <h1>${STORE[questionNum].question}</h1>
     <form>
       <input type="radio" name="question-answers" class="${STORE[questionNum].answers[0]}">
@@ -128,6 +133,7 @@ function handleSubmitAnswer(){
     //update to the next question
     })
 };*/
+const rightWrongPhoto = ["img/mikehappy.jpg","img/mikecrying.jpg"];
 
 function rightHtml(){
     //clickNextQuestion();
@@ -135,7 +141,8 @@ function rightHtml(){
     if(questionNum + 1 === STORE.length){
         return `<section class="quizbox">
         <h1>Score!</h1>
-       <div class="photo final">Photo relating to score/miss...right/wrong</div>
+       <div id="photo">
+       <img class ="checkAnsPhoto" src ="${rightWrongPhoto[0]}"</div>
        <br>Right Answer!
        <p> "Talent wins games, but teamwork and intelligence wins championships."
            <br>  - Michael Jordan
@@ -146,7 +153,8 @@ function rightHtml(){
     } else {
     return `<section class="quizbox">
     <h1>Score!</h1>
-   <div class="photo final">Photo relating to score/miss...right/wrong</div>
+    <div id="photo">
+    <img class ="checkAnsPhoto" src ="${rightWrongPhoto[0]}"</div>
    <br>Right Answer!
    <p> "Talent wins games, but teamwork and intelligence wins championships."
        <br>  - Michael Jordan
@@ -163,7 +171,8 @@ function wrongHtml(){
     if(questionNum + 1 === STORE.length){
         return `<section class="quizbox">
         <h1>Miss!</h1>
-       <div class="photo final">Photo relating to score/miss...right/wrong</div>
+        <div id="photo">
+        <img class ="checkAnsPhoto" src ="${rightWrongPhoto[1]}"</div>
        <br>Wrong Answer!
        <p> "The key to success is failure."
            <br>  - Michael Jordan
@@ -175,7 +184,8 @@ function wrongHtml(){
     } else {
     return `<section class="quizbox">
     <h1>Miss!</h1>
-   <div class="photo final">Photo relating to score/miss...right/wrong</div>
+    <div id="photo">
+    <img class ="checkAnsPhoto" src ="${rightWrongPhoto[1]}"</div>
    <br>Wrong Answer!
    <p> "The key to success is failure."
        <br>  - Michael Jordan
@@ -204,7 +214,7 @@ function checkAnswers(){
    let percentage = (100/(questionNum + 1)) * score;
      let response = ""
       if (percentage < 30){
-          response = "Sorry, but you can't make the team with those kind of numbers. Even Jordan got cut from his highschool varsity. Keep Trying!";
+          response = "Sorry, but you can't make the team with those kind of numbers. Even Jordan got cut from his highschool varsity team. Keep Trying!";
       } if (percentage > 30 && percentage < 44 ){
         response = "Not bad you might do well as a reserve. Jordan was supposed to come off the bench in his final All-star game, but Vince Carter respectfully gave him his spot.";
       } if (percentage > 45 && percentage < 74 ){
@@ -212,7 +222,20 @@ function checkAnswers(){
       } if (percentage >=75 ){
         response = "You are a legend. Jordan might give you a shoe contract. Welcome to the team!";
       }
-    return ` <div class="photo final">Photo relating to final result</div>
+      
+      let finalPhoto = ""
+      if (percentage < 30){
+        finalPhoto = "img/final1.jpg";
+      } if (percentage > 30 && percentage < 44 ){
+        finalPhoto = "img/final2.jpg";
+      } if (percentage > 45 && percentage < 74 ){
+        finalPhoto = "img/final3.png";
+      } if (percentage >=75 ){
+        finalPhoto = "img/final4.jpg";
+      }
+    return ` 
+    <h1>Results</h1>
+    <br><div id="photo"><img class="finalPhoto" src="${finalPhoto}"></div>
     <br>
     You got ${score} out of ${STORE.length}! 
     <br> Thats a ${percentage}% Field Goal Percentage.

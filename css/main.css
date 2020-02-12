@@ -1,20 +1,35 @@
+  
 section {
-    border: solid gray;
-    border-width: 1px;
+    border: solid rgba(210, 88, 82, 0.178);
+    border-width: 5px;
+    border-radius: 7%;
     text-align: center;
     width: 320px;
     height: 568px;
+    margin-top: 90px;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: 0 4px 8px 0 rgb(109, 40, 72);
+    transition: 0.3s;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 16px;
+}
+section:hover {
+    margin-top: 5px;
+    border: solid #F62459;
 }
 
-section>div.start-photo{
-    border: solid gray;
-    border-width: 1px;
+.start-photo{
     margin-left: auto;
     margin-right: auto;
     height:300px;
     width: 225px;
+   
+}
+
+.quizbox {
+    background-color: rgb(46, 17, 15);
+    color: white;
 }
 
 
@@ -31,13 +46,29 @@ section.question-page>form>input.submit {
     margin-top: 50px;
 }
 
-div.photo {
-    border: solid gray;
-    border-width: 1px;
+img.quesPhoto {
     height:225px;
-    width: 225px;
+    width: auto;
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
 }
+
+img.finalPhoto {
+    width:280px;
+    height: auto;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img.checkAnsPhoto {
+    height:250px;
+    width: auto;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 
