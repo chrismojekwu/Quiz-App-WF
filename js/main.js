@@ -101,27 +101,19 @@ const rightWrongPhoto = ["img/mikehappy.jpg","img/mikecrying.jpg"];
 function startQuiz() {
   $('.quizbox').on('click','.quiz-start', e => {
    renderQuestion();
-   console.log('click!');
-  });
+   });
 };
 
 
 
 
-let questionNum = 0; //variable for question number
-let score = 0; //variable for score
+let questionNum = 0; 
+let score = 0; 
 
 function renderQuestion(){
     $('.quizbox').on('click','.quiz-start', e => {
-       //get question html //replace container html with question html
-        $('.quizbox').html(createQuestionHtml());
-
-        console.log("question rendered")
+      $('.quizbox').html(createQuestionHtml());
        });
-      
-      
-      
-      //call submit answer
 };
 
 function createQuestionHtml(){
@@ -161,7 +153,7 @@ function handleSubmitAnswer(){
         $('.quizbox').html(wrongHtml());
     }
     clickNextQuestion();
-    console.log("answer submitted")
+    
   })
   
 };
@@ -229,13 +221,13 @@ function wrongHtml(){
 
 
 function clickNextQuestion(){
-    //know what question user is on
+    
     $('.quizbox').on('click','.nextQuestion', e => {
         questionNum+=1
         $('.quizbox').html(createQuestionHtml());
-        console.log('next question')
+        
     })
-    //call question page 
+    
 };
 
 function checkAnswers(){
@@ -277,7 +269,7 @@ function renderFeedbackScreen(){
     })
 
     $('.quizbox').submit('click','.restart', e => {
-        console.log(submit)
+        
     })
     
 };

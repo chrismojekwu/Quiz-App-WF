@@ -28,22 +28,15 @@ section:hover {
 }
 
 .quizbox {
-    background-color: rgb(46, 17, 15);
+    background-color: rgb(43, 14, 12);
     color: white;
     padding: 5px;
 }
 
+
 .counter {
     margin-top: 10px;
 }
-
-/*section.quizbox>button {
-    margin-top: 50px;
-}
-
-section.question-page>form>input.submit {
-    margin-top: 50px;
-}*/
 
 .submit,.checkScore,.restart,.quiz-start{
     margin-top: 20px;
@@ -91,5 +84,12 @@ img.checkAnsPhoto {
     margin-right: auto;
 }
 
+@media screen and (min-width:768px){
+    section {
+        margin-top: 50px;
+        width:400px;
+        height: 600px;
+        font-size: 18px;
 
-
+    }
+}
