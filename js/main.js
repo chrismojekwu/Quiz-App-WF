@@ -9,6 +9,7 @@ const STORE = [
                  "Brooklyn, New York",
                  "Philadelphia, Pennsylvania"],
        correct:  "Brooklyn, New York",
+       sentence: "Brooklyn, New York.",
        photo: ["img/mikekid.jpg" , "Michael Jordan as a child."]
     },
     {
@@ -18,6 +19,7 @@ const STORE = [
                   "After his sophmore season.",
                   "One and done."],
         correct:  "After his junior season.",
+        sentence: "after his junior season.",
         photo: ["img/mikeunc.jpg","Michael Jordan playing for the Univesity of North Carolina."]
      },
      {
@@ -27,6 +29,7 @@ const STORE = [
                   "Scottsdale Scorpions",
                   "All of the above."],
         correct:  "All of the above.",
+        sentence:  "all of the above.",
         photo: ["img/mikegolf.jpeg","Michael Jordan playing golf."]
      },
      {
@@ -36,6 +39,7 @@ const STORE = [
                   "Never",
                   "Four times"],
         correct:  "Six times",
+        sentence: "six times.",
         photo: ["img/mike6rings.jpg","Portrait of Michael Jordan displaying six championship rings."]
      },
      {
@@ -45,6 +49,7 @@ const STORE = [
                   "Grant Hill & Lebron James",
                   "Magic Johnson & Kobe Bryant"],
         correct:  "Magic Johnson & Kobe Bryant",
+        sentence: "Magic Johnson & Kobe Bryant.",
         photo: ["img/mikedreamteam.jpg","Michael Jordan with Larry Bird & Magic Johnson in a photo for USA Basketball."]
      },
      {
@@ -54,6 +59,7 @@ const STORE = [
                    "#45",
                    "#3"],
          correct:  "#45",
+         sentence: "#45, the same number he wore in baseball.",
          photo: ["img/mike45.jpg","Michael Jordan resting during a game."]
      },
      {
@@ -63,6 +69,7 @@ const STORE = [
                   "Dustin Neil Diamond (Screech from Saved by the Bell)",
                   "Larry Bird"],
         correct:  "Wayne Knight (Newman from Seinfield)",
+        sentence: "Newman!",
         photo: ["img/mikemurray.jpg","Michael Jordan and Bill Murray in a scene from the movie Space Jam."]
     },
     {
@@ -72,15 +79,17 @@ const STORE = [
                   "Size 9",
                   "Size 15"],
         correct:  "Size 13",
+        sentence: "size 13, the same as me if you're feeling generous.",
         photo: ["img/mikeshoe.jpg","Michael Jordan wearing his signature shoes."]
     },
     {
         question: "Michael Jordan popularized the free throw line dunk in a 1987 Dunk contest. Which player and mentor of his performed it first?",
         answers:[ "Clyde Drexler",
-                  "Dominique Wilkens",
+                  "Dominique Wilkins",
                   "Spud Webb",
                   "Julius Erving"],
         correct:  "Julius Erving",
+        sentence: "Julius Erving, aka Doctor J.",
         photo: ["img/mikedrj.jpg","Michael Jordan and Julius Erving."]
     },
     {
@@ -90,6 +99,7 @@ const STORE = [
                   "Isaiah Thomas",
                   "Drazen Petrovic"],
         correct:  "Isaiah Thomas",
+        sentence: "Isaiah Thomas of the Bad Boy Pistons.",
         photo: ["img/mikerival.png","Isaiah Thomas with Michael Jordan in the background."]
     }
 ]; 
@@ -197,6 +207,7 @@ function wrongHtml(){
         <div id="photo">
         <img class ="checkAnsPhoto" src ="${rightWrongPhoto[1]}"</div>
        <br>Wrong Answer!
+       <br> It was ${STORE[questionNum].sentence}
        <p> "The key to success is failure."
            <br>  - Michael Jordan
        </p>
@@ -210,6 +221,7 @@ function wrongHtml(){
     <div id="photo">
     <img class ="checkAnsPhoto" src ="${rightWrongPhoto[1]}"</div>
    <br>Wrong Answer!
+   <br> It was ${STORE[questionNum].sentence}
    <p> "The key to success is failure."
        <br>  - Michael Jordan
    </p>
@@ -234,7 +246,7 @@ function checkAnswers(){
    let percentage = (100/(questionNum + 1)) * score;
      let response = ""
       if (percentage < 30){
-          response = "Sorry, but you can't make the team with those kind of numbers. Even Jordan got cut from his highschool varsity team. Keep Trying!";
+          response = "Sorry, but you can't make the team with those kinds of numbers. Even Jordan got cut from his highschool varsity team. Keep Trying!";
       } if (percentage > 30 && percentage < 44 ){
         response = "Not bad you might do well as a reserve. Jordan was supposed to come off the bench in his final All-star game, but Vince Carter respectfully gave him his spot.";
       } if (percentage > 45 && percentage < 74 ){
