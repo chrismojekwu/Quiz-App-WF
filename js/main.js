@@ -245,7 +245,7 @@ function clickNextQuestion(){
 function checkAnswers(){
    let percentage = (100/(questionNum + 1)) * score;
      let response = ""
-      if (percentage < 30){
+      if (percentage <= 30){
           response = "Sorry, but you can't make the team with those kinds of numbers. Even Jordan got cut from his highschool varsity team. Keep Trying!";
       } if (percentage > 30 && percentage < 44 ){
         response = "Not bad you might do well as a reserve. Jordan was supposed to come off the bench in his final All-star game, but Vince Carter respectfully gave him his spot.";
