@@ -256,7 +256,7 @@ function checkAnswers(){
       }
       
       let finalPhoto = ""
-      if (percentage < 30){
+      if (percentage <= 30){
         finalPhoto = "img/final1.jpg";
       } if (percentage > 30 && percentage < 44 ){
         finalPhoto = "img/final2.jpg";
