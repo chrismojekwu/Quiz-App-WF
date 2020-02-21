@@ -89,6 +89,8 @@ label {
 }
 input, button{
     cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
 
 @media screen and (min-width:768px){
