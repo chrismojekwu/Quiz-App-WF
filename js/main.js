@@ -133,19 +133,28 @@ function createQuestionHtml(){
     <br><div id="photo"><img class="quesPhoto" src="${STORE[questionNum].photo[0]}" alt="${STORE[questionNum].photo[1]}"></div>
     <h1>${STORE[questionNum].question}</h1>
     <form>
-      <input type="radio" name="question-answers" class="${STORE[questionNum].answers[0]}">
+      <label for="answer1">
+      <input id="answer1" type="radio" name="question-answers" class="${STORE[questionNum].answers[0]}">
       ${STORE[questionNum].answers[0]}
-      <br>
-      <input type="radio" name="question-answers" class="${STORE[questionNum].answers[1]}">
+      </label>
+      
+      <label for="answer2">
+      <input id="answer2" type="radio" name="question-answers" class="${STORE[questionNum].answers[1]}">
       ${STORE[questionNum].answers[1]}
-      <br>
-      <input type="radio" name="question-answers" class="${STORE[questionNum].answers[2]}">
+      </label>
+       
+      <label for="answer3">
+      <input id="answer3" type="radio" name="question-answers" class="${STORE[questionNum].answers[2]}">
       ${STORE[questionNum].answers[2]}
-      <br>
-      <input type="radio" name="question-answers" class="${STORE[questionNum].answers[3]}">
+      </label>
+     
+      <label for="answer4">
+      <input id="answer4" type="radio" name="question-answers" class="${STORE[questionNum].answers[3]}">
       ${STORE[questionNum].answers[3]}
-      <br>
-      <input type="button" class="submit" value="Shoot">
+      </label>
+      
+      <label for="submit">
+      <input type="button" class="submit" id="submit" value="Shoot"></label>
     </form>
       </section>`
 };
@@ -180,8 +189,10 @@ function rightHtml(){
        <p> "Talent wins games, but teamwork and intelligence wins championships."
            <br>  - Michael Jordan
        </p>
-            <br>
-    <input type="button" class="checkScore" value="Did I make the team?">
+           
+       <label for="checkScore">     
+    <input type="button" id="checkScore" class="checkScore" value="Did I make the team?">
+    </label>
     </section>`
     } else {
     return `<section class="quizbox">
@@ -192,8 +203,10 @@ function rightHtml(){
    <p> "Talent wins games, but teamwork and intelligence wins championships."
        <br>  - Michael Jordan
    </p>
-        <br>
-<input type="button" class="nextQuestion" value="Next Question">
+       
+   <label for="nextQuestion">   
+<input type="button" id="nextQuestion" class="nextQuestion" value="Next Question">
+</label>
 </section>`
     }
     
@@ -211,8 +224,10 @@ function wrongHtml(){
        <p> "The key to success is failure."
            <br>  - Michael Jordan
        </p>
-            <br>
-        <input type="button" class="checkScore" value="Did I make the team?">
+            
+        <label for="checkScore">     
+        <input type="button" id="checkScore" class="checkScore" value="Did I make the team?">
+        </label>
     </section>`
 
     } else {
@@ -225,9 +240,11 @@ function wrongHtml(){
    <p> "The key to success is failure."
        <br>  - Michael Jordan
    </p>
-        <br>
-<input type="button" class="nextQuestion" value="Next Question">
-</section>`
+       
+     <label for="nextQuestion">   
+    <input type="button" id="nextQuestion" class="nextQuestion" value="Next Question">
+    </label>
+     </section>`
     }
 };
 
@@ -272,7 +289,9 @@ function checkAnswers(){
     You got ${score} out of ${STORE.length}! 
     <br> Thats a ${percentage}% Field Goal Percentage.
 <p>${response}</p>
-<form><input type="submit" class="restart" value="Retake Quiz">`
+<form><label for="restart">
+<input id="restart" type="submit" class="restart" value="Retake Quiz">
+</label>`
 };
 
 function renderFeedbackScreen(){
@@ -280,8 +299,8 @@ function renderFeedbackScreen(){
         $('.quizbox').html(checkAnswers());
     })
 
-    $('.quizbox').submit('click','.restart', e => {
-        
+    $('.quizbox').reset('click','.restart', e => {
+        preventDefault();
     })
     
 };
