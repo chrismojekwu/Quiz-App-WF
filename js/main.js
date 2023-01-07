@@ -267,7 +267,7 @@ function checkAnswers(){
       } if (percentage > 30 && percentage < 44 ){
         response = "Not bad you might do well as a reserve. Jordan was supposed to come off the bench in his final All-star game, but Vince Carter respectfully gave him his spot.";
       } if (percentage > 45 && percentage < 74 ){
-        response = "Those are great numbers, Jordan retired with a career 50 FG%. Welcome to team.";
+        response = "Those are great numbers, Jordan retired with a career 50 FG%. Welcome to the team.";
       } if (percentage >=75 ){
         response = "You are a legend. Jordan might give you a shoe contract. Welcome to the team!";
       }
